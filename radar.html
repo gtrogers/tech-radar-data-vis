@@ -95,10 +95,10 @@
 			infoPanel.selectAll("text").remove();
 			infoPanel.append("svg:text").text(d3.select(this).datum()["name"]);
 			infoPanel.append("svg:text").attr("dy",32).text("Status: " + d3.select(this).datum()["stage"]);
-			infoPanel.append("svg:text").attr("dy",64).text("Placeholder comment about " + d3.select(this).datum()["name"]);
+			infoPanel.append("svg:text").attr("dy",64).text("Click to Google for " + d3.select(this).datum()["name"]);
 		})
-		.on("mouseout", function() {
-			//setTimeout(function() { infoPanel.selectAll("text").remove(); }, 5000);
+		.on("click", function() {
+			window.open("http://www.google.com/search?q=" + d3.select(this).datum()["name"],"_blank");
 		});
 	
 	key.append("svg:text")
