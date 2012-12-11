@@ -10,36 +10,32 @@
 	<!-- Date: 2012-12-10 -->
 </head>
 <body>
-	<section id="title">
-		<h1>Tech Radar</h1>
-	</section>
 	<section id="radar">
-		<h2>The Radar</h2>
 		<div id="radar-vis"></div>
 	</section>
 	<script src="assets/d3.v2.min.js" type="text/javascript"></script>
 </body>
 <script>
-	var radarStats = [{"section":"Techniques","stage":"Adopt","name":"1. Health check pages"},{"section":"Techniques","stage":"Adopt","name":"2. Windows infrastructure automation"},{"section":"Techniques","stage":"Adopt","name":"3. Guerrilla user testing"},{"section":"Techniques","stage":"Adopt","name":"4. Work-in-Progress limits"},{"section":"Techniques","stage":"Adopt","name":"5. Automated deployment pipeline"},{"section":"Techniques","stage":"Adopt","name":"6. In process acceptance testing"},{"section":"Techniques","stage":"Adopt","name":"7. Advanced analytics"},{"section":"Techniques","stage":"Adopt","name":"8. Aggregates as documents"},{"section":"Techniques","stage":"Trial","name":"9. Polyglot Persistence"},{"section":"Techniques","stage":"Trial","name":"10.Performance testing as"},{"section":"Techniques","stage":"Trial","name":"a first-class citizen"},{"section":"Techniques","stage":"Trial","name":"11. Out-of-container functional testing"},{"section":"Techniques","stage":"Trial","name":"12. Micro-services"},{"section":"Techniques","stage":"Trial","name":"13. Infrastructure automation of"},{"section":"Techniques","stage":"Trial","name":"development workstations"},{"section":"Techniques","stage":"Trial","name":"14. Agile analytics"},{"section":"Techniques","stage":"Trial","name":"15. Logs as data"},{"section":"Techniques","stage":"Trial","name":"16. Responsive web design"},{"section":"Techniques","stage":"Trial","name":"17. Mobile first"},{"section":"Techniques","stage":"Trial","name":"18. Declarative provisioning"},{"section":"Techniques","stage":"Trial","name":"19. Remote usability testing"},{"section":"Techniques","stage":"Trial","name":"20. Semantic monitoring"},{"section":"Techniques","stage":"Trial","name":"21. Edge Side Includes for page"},{"section":"Techniques","stage":"Trial","name":"composition"},{"section":"Techniques","stage":"Trial","name":"22. Configuration in DNS"},{"section":"Techniques","stage":"Assess","name":"23. Deployment and scripting test tools"},{"section":"Techniques","stage":"Hold","name":"24. Database based integration"},{"section":"Techniques","stage":"Hold","name":"25. Feature branching"},{"section":"Techniques","stage":"Hold","name":"26. Test recorders"},{"section":"Techniques","stage":"Hold","name":"27. Exhaustive browser-based testing"},{"section":"Techniques","stage":"Hold","name":""},{"section":"Tools","stage":"Adopt","name":"28. Infrastructure as code"},{"section":"Tools","stage":"Adopt","name":"29. Embedded servlet containers"},{"section":"Tools","stage":"Adopt","name":"30. Silverback"},{"section":"Tools","stage":"Adopt","name":"31. AppCode"},{"section":"Tools","stage":"Adopt","name":"32. Jasmine paired with Node.js"},{"section":"Tools","stage":"Adopt","name":"33. Immutable servers"},{"section":"Tools","stage":"Adopt","name":"34. Graphite"},{"section":"Tools","stage":"Trial","name":"35. Vagrant"},{"section":"Tools","stage":"Trial","name":"36. Gradle"},{"section":"Tools","stage":"Trial","name":"37. PSake"},{"section":"Tools","stage":"Trial","name":"38. Frank"},{"section":"Tools","stage":"Trial","name":"39. JavaScript micro frameworks"},{"section":"Tools","stage":"Trial","name":"40. Jade"},{"section":"Tools","stage":"Trial","name":"41. NuGet"},{"section":"Tools","stage":"Trial","name":"42. Highcharts"},{"section":"Tools","stage":"Trial","name":"43. D3"},{"section":"Tools","stage":"Trial","name":"44. Apache Pig"},{"section":"Tools","stage":"Trial","name":"45. SaaS performance testing tools"},{"section":"Tools","stage":"Trial","name":"46. Dependency Structure"},{"section":"Tools","stage":"Trial","name":"Matrices"},{"section":"Tools","stage":"Trial","name":"47. Locust"},{"section":"Tools","stage":"Trial","name":"48. Rake for Java & .Net"},{"section":"Tools","stage":"Assess","name":"49. Logic-free markup"},{"section":"Tools","stage":"Assess","name":"50. Crazy Egg"},{"section":"Tools","stage":"Assess","name":"51. Zipkin"},{"section":"Tools","stage":"Assess","name":"52. Zucchini"},{"section":"Tools","stage":"Assess","name":"53. GemJars"},{"section":"Tools","stage":"Assess","name":"54. Light Table"},{"section":"Tools","stage":"Assess","name":"55. Riemann"},{"section":"Tools","stage":"Hold","name":"56. Enterprise service bus"},{"section":"Tools","stage":"Hold","name":"57. VCS with implicit workflow"},{"section":"Tools","stage":"Hold","name":"58. Maven"},{"section":"Tools","stage":"Hold","name":""},{"section":"Platforms","stage":"Adopt","name":"59. ATOM"},{"section":"Platforms","stage":"Adopt","name":"60. Care about hardware"},{"section":"Platforms","stage":"Adopt","name":"61. Mobile payment systems"},{"section":"Platforms","stage":"Adopt","name":"62. Neo4J"},{"section":"Platforms","stage":"Trial","name":"63. Node.js"},{"section":"Platforms","stage":"Trial","name":"64. Riak"},{"section":"Platforms","stage":"Trial","name":"65. Domain-specific PaaS"},{"section":"Platforms","stage":"Trial","name":"66. Linux containers"},{"section":"Platforms","stage":"Trial","name":"67. Private clouds"},{"section":"Platforms","stage":"Trial","name":"68. Hybrid clouds"},{"section":"Platforms","stage":"Trial","name":"69. MongoDB"},{"section":"Platforms","stage":"Trial","name":"70. Continuous integration in the cloud"},{"section":"Platforms","stage":"Trial","name":"71. Couchbase"},{"section":"Platforms","stage":"Trial","name":"72. Single threaded servers with"},{"section":"Platforms","stage":"Trial","name":"asynchronous I/O"},{"section":"Platforms","stage":"Assess","name":"73. Calatrava"},{"section":"Platforms","stage":"Assess","name":"74. Datomic"},{"section":"Platforms","stage":"Assess","name":"75. Vert.x"},{"section":"Platforms","stage":"Assess","name":"76. Azure"},{"section":"Platforms","stage":"Assess","name":"77. Open source IaaS"},{"section":"Platforms","stage":"Assess","name":"78. BigQuery"},{"section":"Platforms","stage":"Assess","name":"79. Windows Phone"},{"section":"Platforms","stage":"Hold","name":"80. WS-*"},{"section":"Platforms","stage":"Hold","name":"81. Java portal servers"},{"section":"Platforms","stage":"Hold","name":"82. Zero-code packages"},{"section":"Platforms","stage":"Hold","name":"83. Singleton infrastructure"},{"section":"Platforms","stage":"Hold","name":"84. Meteor.js"},{"section":"Platforms","stage":"Hold","name":""},{"section":"Languages and Frameworks","stage":"Adopt","name":"85. Clojure"},{"section":"Languages and Frameworks","stage":"Adopt","name":"86. Scala"},{"section":"Languages and Frameworks","stage":"Adopt","name":"87. Care about languages"},{"section":"Languages and Frameworks","stage":"Adopt","name":"88. SASS, SCSS, LESS, and Stylus"},{"section":"Languages and Frameworks","stage":"Trial","name":"89. Domain-Specific Languages"},{"section":"Languages and Frameworks","stage":"Trial","name":"90. Scratch, Alice, and Kodu"},{"section":"Languages and Frameworks","stage":"Trial","name":"91. Twitter Bootstrap"},{"section":"Languages and Frameworks","stage":"Trial","name":"92. Sinatra"},{"section":"Languages and Frameworks","stage":"Trial","name":"93. AngularJS and Knockout"},{"section":"Languages and Frameworks","stage":"Trial","name":"94. Require.js"},{"section":"Languages and Frameworks","stage":"Trial","name":"95. Dropwizard"},{"section":"Languages and Frameworks","stage":"Trial","name":"96. Jekyll"},{"section":"Languages and Frameworks","stage":"Trial","name":"97. HTML5 for offline applications"},{"section":"Languages and Frameworks","stage":"Assess","name":"98. F#"},{"section":"Languages and Frameworks","stage":"Assess","name":"99. ClojureScript"},{"section":"Languages and Frameworks","stage":"Assess","name":"100. Lua"},{"section":"Languages and Frameworks","stage":"Assess","name":"101. RubyMotion"},{"section":"Languages and Frameworks","stage":"Assess","name":"102. Gremlin"},{"section":"Languages and Frameworks","stage":"Assess","name":"103. JavaScript as a platform"},{"section":"Languages and Frameworks","stage":"Hold","name":"104. Backbone.js"},{"section":"Languages and Frameworks","stage":"Hold","name":"105. Logic in stored procedures"},{"section":"Languages and Frameworks","stage":"Hold","name":"106. Google Dart"},{"section":"Languages and Frameworks","stage":"Hold","name":"107. Component-based frameworks"}];
-	
+	var radarStats = [{"section":"Techniques","stage":"Adopt","name":"Health check pages"},{"section":"Techniques","stage":"Adopt","name":"Windows infrastructure automation"},{"section":"Techniques","stage":"Adopt","name":"Guerrilla user testing"},{"section":"Techniques","stage":"Adopt","name":"Work-in-Progress limits"},{"section":"Techniques","stage":"Adopt","name":"Automated deployment pipeline"},{"section":"Techniques","stage":"Adopt","name":"In process acceptance testing"},{"section":"Techniques","stage":"Adopt","name":"Advanced analytics"},{"section":"Techniques","stage":"Adopt","name":"Aggregates as documents"},{"section":"Techniques","stage":"Trial","name":"Polyglot Persistence"},{"section":"Techniques","stage":"Trial","name":"Performance testing as a first-class citizen"},{"section":"Techniques","stage":"Trial","name":"Out-of-container functional testing"},{"section":"Techniques","stage":"Trial","name":"Micro-services"},{"section":"Techniques","stage":"Trial","name":"Infrastructure automation of development workstations"},{"section":"Techniques","stage":"Trial","name":"Agile analytics"},{"section":"Techniques","stage":"Trial","name":"Logs as data"},{"section":"Techniques","stage":"Trial","name":"Responsive web design"},{"section":"Techniques","stage":"Trial","name":"Mobile first"},{"section":"Techniques","stage":"Trial","name":"Declarative provisioning"},{"section":"Techniques","stage":"Trial","name":"Remote usability testing"},{"section":"Techniques","stage":"Trial","name":"Semantic monitoring"},{"section":"Techniques","stage":"Trial","name":"Edge Side Includes for page composition"},{"section":"Techniques","stage":"Trial","name":"Configuration in DNS"},{"section":"Techniques","stage":"Assess","name":"Deployment and scripting test tools"},{"section":"Techniques","stage":"Hold","name":"Database based integration"},{"section":"Techniques","stage":"Hold","name":"Feature branching"},{"section":"Techniques","stage":"Hold","name":"Test recorders"},{"section":"Techniques","stage":"Hold","name":"Exhaustive browser-based testing"},{"section":"Tools","stage":"Adopt","name":"Infrastructure as code"},{"section":"Tools","stage":"Adopt","name":"Embedded servlet containers"},{"section":"Tools","stage":"Adopt","name":"Silverback"},{"section":"Tools","stage":"Adopt","name":"AppCode"},{"section":"Tools","stage":"Adopt","name":"Jasmine paired with Node.js"},{"section":"Tools","stage":"Adopt","name":"Immutable servers"},{"section":"Tools","stage":"Adopt","name":"Graphite"},{"section":"Tools","stage":"Trial","name":"Vagrant"},{"section":"Tools","stage":"Trial","name":"Gradle"},{"section":"Tools","stage":"Trial","name":"PSake"},{"section":"Tools","stage":"Trial","name":"Frank"},{"section":"Tools","stage":"Trial","name":"JavaScript micro frameworks"},{"section":"Tools","stage":"Trial","name":"Jade"},{"section":"Tools","stage":"Trial","name":"NuGet"},{"section":"Tools","stage":"Trial","name":"Highcharts"},{"section":"Tools","stage":"Trial","name":"D3"},{"section":"Tools","stage":"Trial","name":"Apache Pig"},{"section":"Tools","stage":"Trial","name":"SaaS performance testing tools"},{"section":"Tools","stage":"Trial","name":"Dependency Structure Matrices"},{"section":"Tools","stage":"Trial","name":"Locust"},{"section":"Tools","stage":"Trial","name":"Rake for Java & .Net"},{"section":"Tools","stage":"Assess","name":"Logic-free markup"},{"section":"Tools","stage":"Assess","name":"Crazy Egg"},{"section":"Tools","stage":"Assess","name":"Zipkin"},{"section":"Tools","stage":"Assess","name":"Zucchini"},{"section":"Tools","stage":"Assess","name":"GemJars"},{"section":"Tools","stage":"Assess","name":"Light Table"},{"section":"Tools","stage":"Assess","name":"Riemann"},{"section":"Tools","stage":"Hold","name":"Enterprise service bus"},{"section":"Tools","stage":"Hold","name":"VCS with implicit workflow"},{"section":"Tools","stage":"Hold","name":"Maven"},{"section":"Platforms","stage":"Adopt","name":"ATOM"},{"section":"Platforms","stage":"Adopt","name":"Care about hardware"},{"section":"Platforms","stage":"Adopt","name":"Mobile payment systems"},{"section":"Platforms","stage":"Adopt","name":"Neo4J"},{"section":"Platforms","stage":"Trial","name":"Node.js"},{"section":"Platforms","stage":"Trial","name":"Riak"},{"section":"Platforms","stage":"Trial","name":"Domain-specific PaaS"},{"section":"Platforms","stage":"Trial","name":"Linux containers"},{"section":"Platforms","stage":"Trial","name":"Private clouds"},{"section":"Platforms","stage":"Trial","name":"Hybrid clouds"},{"section":"Platforms","stage":"Trial","name":"MongoDB"},{"section":"Platforms","stage":"Trial","name":"Continuous integration in the cloud"},{"section":"Platforms","stage":"Trial","name":"Couchbase"},{"section":"Platforms","stage":"Trial","name":"Single threaded servers with asynchronous I/O"},{"section":"Platforms","stage":"Assess","name":"Calatrava"},{"section":"Platforms","stage":"Assess","name":"Datomic"},{"section":"Platforms","stage":"Assess","name":"Vert.x"},{"section":"Platforms","stage":"Assess","name":"Azure"},{"section":"Platforms","stage":"Assess","name":"Open source IaaS"},{"section":"Platforms","stage":"Assess","name":"BigQuery"},{"section":"Platforms","stage":"Assess","name":"Windows Phone"},{"section":"Platforms","stage":"Hold","name":"WS-*"},{"section":"Platforms","stage":"Hold","name":"Java portal servers"},{"section":"Platforms","stage":"Hold","name":"Zero-code packages"},{"section":"Platforms","stage":"Hold","name":"Singleton infrastructure"},{"section":"Platforms","stage":"Hold","name":"Meteor.js"},{"section":"Languages and Frameworks","stage":"Adopt","name":"Clojure"},{"section":"Languages and Frameworks","stage":"Adopt","name":"Scala"},{"section":"Languages and Frameworks","stage":"Adopt","name":"Care about languages"},{"section":"Languages and Frameworks","stage":"Adopt","name":"SASS, SCSS, LESS, and Stylus"},{"section":"Languages and Frameworks","stage":"Trial","name":"Domain-Specific Languages"},{"section":"Languages and Frameworks","stage":"Trial","name":"Scratch, Alice, and Kodu"},{"section":"Languages and Frameworks","stage":"Trial","name":"Twitter Bootstrap"},{"section":"Languages and Frameworks","stage":"Trial","name":"Sinatra"},{"section":"Languages and Frameworks","stage":"Trial","name":"AngularJS and Knockout"},{"section":"Languages and Frameworks","stage":"Trial","name":"Require.js"},{"section":"Languages and Frameworks","stage":"Trial","name":"Dropwizard"},{"section":"Languages and Frameworks","stage":"Trial","name":"Jekyll"},{"section":"Languages and Frameworks","stage":"Trial","name":"HTML5 for offline applications"},{"section":"Languages and Frameworks","stage":"Assess","name":"F#"},{"section":"Languages and Frameworks","stage":"Assess","name":"ClojureScript"},{"section":"Languages and Frameworks","stage":"Assess","name":"Lua"},{"section":"Languages and Frameworks","stage":"Assess","name":"RubyMotion"},{"section":"Languages and Frameworks","stage":"Assess","name":"Gremlin"},{"section":"Languages and Frameworks","stage":"Assess","name":"JavaScript as a platform"},{"section":"Languages and Frameworks","stage":"Hold","name":"Backbone.js"},{"section":"Languages and Frameworks","stage":"Hold","name":"Logic in stored procedures"},{"section":"Languages and Frameworks","stage":"Hold","name":"Google Dart"},{"section":"Languages and Frameworks","stage":"Hold","name":"Component-based frameworks"}]
+
 	var color = function(d,i) {
 		var colors = {
-			"Techniques": "blue",
-			"Tools": "red",
-			"Platforms": "blue",
-			"Languages and Frameworks": "red"
+			"Techniques": "black",
+			"Tools": "#E30066",
+			"Platforms": "#C1D430",
+			"Languages and Frameworks": "#2B9EA6"
 		};
 		return colors[d["section"]];
 	};
 	
 	var radius = function(d,i) {
 		var distanceFromCenter = {
-			"Adopt": 100,
-			"Assess": 200,
-			"Trial": 300,
-			"Hold": 400
+			"Adopt": 1,
+			"Assess": 2,
+			"Trial": 3,
+			"Hold": 4
 		};
-		return distanceFromCenter[d["stage"]];
+		return d3.scale.pow().exponent(1.5).domain([1,4]).range([100,width*0.66])(distanceFromCenter[d["stage"]]);
 	};
 	
 	var stagePosition = function(d,i) {
@@ -52,15 +48,16 @@
 	};
 	
 	var thetaRads = function(d,i) {
-		var offsets = {
-			"Techniques": 0,
-			"Tools": Math.PI / 2,
-			"Platforms": Math.PI,
-			"Languages and Frameworks": 1.5*Math.PI
+		var quarterCircle = Math.PI*0.5;
+			offsets = {
+			"Techniques": quarterCircle,
+			"Tools": quarterCircle*2,
+			"Platforms": quarterCircle*3,
+			"Languages and Frameworks": quarterCircle*4
 		}
 		var stagePos = stagePosition(d,i);
-		var quarterAngle = Math.PI / 2;
-		return (quarterAngle / stagePos.total)*stagePos.position + offsets[d["section"]];
+		var sectorAngle = Math.PI / 2;
+		return (sectorAngle / stagePos.total)*stagePos.position + offsets[d["section"]];
 	};
 	
 	var thetaDegs = function(d,i) {
@@ -68,7 +65,7 @@
 	};
 	
 	var x = function(d,i) {
-		return radius(d,i) * Math.cos(thetaRads(d,i)) + width/2;
+		return radius(d,i) * Math.cos(thetaRads(d,i));
 	}
 	
 	var y = function(d,i) {
@@ -76,33 +73,63 @@
 	}
 
 	var width = 1600,
-		height = 1000;
-	
-	radar = d3.select("#radar-vis").append("svg:svg").attr("width",width).attr("height",height);
-	
-	backdrop = radar.selectAll(".circles").data(["Hold","Trial","Assess","Adopt"]).enter()
-		.append("svg:circle")
-		.attr("r", function(d) { return radius({"stage": d}); })
-		.attr("cx",width/2)
-		.attr("cy",height/2)
-		.attr("fill",function (d,i) {
-			return (i%2 === 0) ? "#939598" : "white";
-		})
-		.attr("stroke", "#939598");
+		height = 1000,
+		radar = d3.select("#radar-vis").append("svg:svg").attr("width",width).attr("height",height).append("svg:g").attr("id","container"),
+		infoPanel = d3.select("svg").append("svg:g").attr("transform","translate(" + (width/2) + "," + (height - height/8) +")").attr("text-anchor","middle"),
+		key = d3.select("svg").append("svg:g").attr("transform","translate(" + (width - width/8) + "," + (height/16) +")"),
+		controls = d3.select("svg").append("svg:g").attr("transform","translate(" + (width - width/8) + "," + (height - height/16) +")"),
+		rotation = 0;
 	
 	radar.selectAll(".items").data(radarStats)
 		.enter()
 		.append("svg:g").append("svg:text")
 		.text(function(d) { return d["name"]; })
+		.attr("class","item")
 		.attr("fill", color)
-		.attr("x",width/2)
-		.attr("y",height/2)
 		.attr("text-anchor","start")
-		.attr("transform", function(d,i) { return  "rotate(" + thetaDegs(d,i) + "," + width/2 + "," + height/2 + ")"; })
-		.transition()
-		.duration(500)
 		.attr("x",x)
 		.attr("y",y)
-		.attr("transform", function(d,i) { return  "rotate(" + thetaDegs(d,i) + "," + x(d,i) + "," + y(d,i) + ")"; });
+		.attr("transform", function(d,i) { return  "rotate(" + thetaDegs(d,i) + "," + x(d,i) + "," + y(d,i) + ")"; })
+		.on("mouseover", function() {
+			infoPanel.selectAll("text").remove();
+			infoPanel.append("svg:text").text(d3.select(this).datum()["name"]);
+			infoPanel.append("svg:text").attr("dy",32).text("Status: " + d3.select(this).datum()["stage"]);
+			infoPanel.append("svg:text").attr("dy",64).text("Placeholder comment about " + d3.select(this).datum()["name"]);
+		})
+		.on("mouseout", function() {
+			setTimeout(function() { infoPanel.selectAll("text").remove(); }, 3000);
+		});
+	
+	key.append("svg:text")
+		.text("Techniques")
+		.attr("dy",0)
+		.attr("fill",color({section: "Techniques"}));
+
+	key.append("svg:text")
+		.text("Tools")
+		.attr("dy",32)
+		.attr("fill",color({section: "Tools"}));
+		
+	key.append("svg:text")
+		.text("Platforms")
+		.attr("dy",64)
+		.attr("fill",color({section: "Platforms"}));
+		
+	key.append("svg:text")
+		.text("Languages and Frameworks")
+		.attr("dy",96)
+		.attr("fill",color({section: "Languages and Frameworks"}));
+		
+	controls.append("svg:text")
+		.text("Click here to rotate")
+		.attr("dy",0)
+		.on("click", function() {
+			rotation = rotation + 15;
+			if (rotation >= 360) rotation = 0;
+			d3.select("#container").transition().duration(500).attr("transform","rotate(" + rotation + "," + 0 + "," + height/2 + ")");
+		});
+		
 </script>
+
+<link rel="stylesheet" type="text/css" href="assets/style.css">
 </html>
