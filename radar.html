@@ -78,7 +78,8 @@
 		infoPanel = d3.select("svg").append("svg:g").attr("transform","translate(" + (width/2) + "," + (height - height/8) +")").attr("text-anchor","middle"),
 		key = d3.select("svg").append("svg:g").attr("transform","translate(" + (width - width/8) + "," + (height/16) +")"),
 		controls = d3.select("svg").append("svg:g").attr("transform","translate(" + (width - width/8) + "," + (height - height/16) +")"),
-		rotation = 0;
+		rotation = 0,
+		zoomed = false;
 	
 	radar.selectAll(".items").data(radarStats)
 		.enter()
@@ -97,7 +98,7 @@
 			infoPanel.append("svg:text").attr("dy",64).text("Placeholder comment about " + d3.select(this).datum()["name"]);
 		})
 		.on("mouseout", function() {
-			setTimeout(function() { infoPanel.selectAll("text").remove(); }, 3000);
+			//setTimeout(function() { infoPanel.selectAll("text").remove(); }, 5000);
 		});
 	
 	key.append("svg:text")
@@ -121,12 +122,25 @@
 		.attr("fill",color({section: "Languages and Frameworks"}));
 		
 	controls.append("svg:text")
-		.text("Click here to rotate")
+		.text("Rotate")
 		.attr("dy",0)
 		.on("click", function() {
 			rotation = rotation + 15;
 			if (rotation >= 360) rotation = 0;
 			d3.select("#container").transition().duration(500).attr("transform","rotate(" + rotation + "," + 0 + "," + height/2 + ")");
+		});
+		
+	controls.append("svg:text")
+		.text("Toggle Zoom")
+		.attr("dy",32)
+		.on("click", function() {
+			if (!zoomed) {
+				d3.select("#container").transition().duration(800).attr("transform","scale(" + 0.5 + ")translate(" + width + "," + height/2 + ")");
+				zoomed = true;
+			} else {
+				d3.select("#container").transition().duration(800).attr("transform","scale(" + 1 + ")");
+				zoomed = false;
+			}
 		});
 		
 </script>
