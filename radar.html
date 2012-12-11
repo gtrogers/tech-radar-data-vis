@@ -78,6 +78,7 @@
 		infoPanel = d3.select("svg").append("svg:g").attr("transform","translate(" + (width/2) + "," + (height - height/8) +")").attr("text-anchor","middle"),
 		key = d3.select("svg").append("svg:g").attr("transform","translate(" + (width - width/8) + "," + (height/16) +")"),
 		controls = d3.select("svg").append("svg:g").attr("transform","translate(" + (width - width/8) + "," + (height - height/16) +")"),
+		logo = d3.select("svg").append("image").attr("xlink:href", "assets/tw-logo.gif").attr("width", 212).attr("height",33),
 		rotation = 0,
 		zoomed = false;
 	
@@ -95,10 +96,10 @@
 			infoPanel.selectAll("text").remove();
 			infoPanel.append("svg:text").text(d3.select(this).datum()["name"]);
 			infoPanel.append("svg:text").attr("dy",32).text("Status: " + d3.select(this).datum()["stage"]);
-			infoPanel.append("svg:text").attr("dy",64).text("Click to Google for " + d3.select(this).datum()["name"]);
+			infoPanel.append("svg:text").attr("dy",64).text("Click to search Martin Fowler's blog for " + d3.select(this).datum()["name"]);
 		})
 		.on("click", function() {
-			window.open("http://www.google.com/search?q=" + d3.select(this).datum()["name"],"_blank");
+			window.open("http://www.google.com/search?q=" + d3.select(this).datum()["name"] + " site:martinfowler.com","_blank");
 		});
 	
 	key.append("svg:text")
